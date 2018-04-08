@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<title> Analysis</title>
+<head>
+  <h4>Your data for {{ hashtag }} has been collected and printed below</h4>
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Sentiment"
+		},
+		legend: {
+			maxWidth: 300,
+			itemWidth: 300
+		},
+		data: [
+		{
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+			dataPoints: [
+				{ y: {{ neutral }}, indexLabel: "Neutral" },
+				{ y: {{ positive }}, indexLabel: "Positive" },
+				{ y: {{ negative }}, indexLabel: "Negative" },
+
+			]
+		}
+		]
+	});
+	chart.render();
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+  <h2>Your chart for the hashtag blank! is below!!!</h2>
+<div id="chartContainer" style="height: 920px; width: 1080px;"></div>
+</body>
+</html>
